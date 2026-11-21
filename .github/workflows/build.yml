@@ -17,10 +17,12 @@ jobs:
       - name: Montar projeto
         run: |
           cd /butano/template
-          mkdir -p src graphics
+          mkdir -p src graphics include
           rm -rf src/* graphics/* include/*
           cp $GITHUB_WORKSPACE/main.cpp src/
           cp $GITHUB_WORKSPACE/*.bmp $GITHUB_WORKSPACE/*.json graphics/
+          cp -r /butano/common/include/* include/
+          cp -r /butano/common/graphics/* graphics/
       - name: Compilar
         run: |
           cd /butano/template
